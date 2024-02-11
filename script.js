@@ -15,11 +15,11 @@ let songs = [
     { songName: "Khairiyat", filePath: "songs/3.mp3", coverPath: "covers/3.jpg" },
     { songName: "7 Rings", filePath: "songs/4.mp3", coverPath: "covers/4.jpg" },
     { songName: "Gulabi Aankhen", filePath: "songs/5.mp3", coverPath: "covers/5.jpg" },
-    { songName: "Main Agar Kahoon", filePath: "songs/2.mp3", coverPath: "covers/6.jpg" },
-    { songName: "Despacito", filePath: "songs/2.mp3", coverPath: "covers/7.jpg" },
-    { songName: "Mere Samne Wali Khidki", filePath: "songs/2.mp3", coverPath: "covers/8.jpg" },
-    { songName: "Senorita", filePath: "songs/2.mp3", coverPath: "covers/9.jpg" },
-    { songName: "Namo Namo", filePath: "songs/4.mp3", coverPath: "covers/10.jpg" },
+    { songName: "Main Agar Kahoon", filePath: "songs/6.mp3", coverPath: "covers/6.jpg" },
+    { songName: "Despacito", filePath: "songs/7.mp3", coverPath: "covers/7.jpg" },
+    { songName: "Mere Samne Wali Khidki", filePath: "songs/8.mp3", coverPath: "covers/8.jpg" },
+    { songName: "Senorita", filePath: "songs/9.mp3", coverPath: "covers/9.jpg" },
+    { songName: "Namo Namo", filePath: "songs/10.mp3", coverPath: "covers/10.jpg" },
 ]
 
 songItems.forEach((element, i) => {
@@ -35,12 +35,14 @@ masterPlay.addEventListener('click', () => {
         masterPlay.classList.remove('fa-play-circle');
         masterPlay.classList.add('fa-pause-circle');
         gif.style.opacity = 1;
+        masterSongName.innerText = songs[songIndex].songName;
     }
     else {
         audioElement.pause();
         masterPlay.classList.remove('fa-pause-circle');
         masterPlay.classList.add('fa-play-circle');
         gif.style.opacity = 0;
+       masterSongName.innerText = songs[songIndex].songName;
     }
 })
 // Listen to Events
