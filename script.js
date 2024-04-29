@@ -70,6 +70,9 @@ const playmusic = (track, pause = false) => {
   document.querySelector(".duration").innerHTML = "00:00/00:00";
 };
 
+
+
+
 async function DisplayCard() {
   let a = await fetch(`/Songs/`);
   let response = await a.text();
@@ -122,9 +125,14 @@ async function DisplayCard() {
     });
   });
 }
+
+
+
+
+
 async function main() {
   songs = await getsongs("Songs/Mood");
-  DisplayCard();
+  await DisplayCard();
   //   var audio = new Audio(songs[0]);
   //   audio.play;
 
