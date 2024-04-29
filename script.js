@@ -18,7 +18,7 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getsongs(folder) {
   currFolder = folder;
-  let a = await fetch(`http://127.0.0.1:5500/${currFolder}/`);
+  let a = await fetch(`/${currFolder}/`);
   let response = await a.text();
 
   let div = document.createElement("div");
@@ -70,7 +70,7 @@ const playmusic = (track, pause = false) => {
 };
 
 async function DisplayCard() {
-  let a = await fetch(`http://127.0.0.1:5500/Songs/`);
+  let a = await fetch(`/Songs/`);
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -85,7 +85,7 @@ async function DisplayCard() {
     if (e.href.includes("/Songs/")) {
       let folder = e.href.split("/").slice(-1)[0];
 
-      let a = await fetch(`http://127.0.0.1:5500/Songs/${folder}/info.json`);
+      let a = await fetch(`/Songs/${folder}/info.json`);
       let response = await a.json();
 
       cardcollection.innerHTML =
@@ -108,7 +108,7 @@ async function DisplayCard() {
           />
         </svg>
       </div>
-      <img src="http://127.0.0.1:5500/Songs/${folder}/cover.jpg" alt="" />
+      <img src="/Songs/${folder}/cover.jpg" alt="" />
       <h2>${response.title}</h2>
       <h4>${response.description}</h4>
     </div>`;
@@ -118,7 +118,6 @@ async function DisplayCard() {
     e.addEventListener("click", async (item) => {
       songs = await getsongs(`Songs/${item.currentTarget.dataset.folder}`);
       playmusic(songs[0]);
-
     });
   });
 }
