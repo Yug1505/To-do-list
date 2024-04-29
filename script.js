@@ -45,7 +45,7 @@ async function getsongs(folder) {
     </div>
     </li>`;
   }
-  playmusic(songs[0], true);
+
   Array.from(
     document.querySelector(".songs").getElementsByTagName("li")
   ).forEach((e) => {
@@ -55,6 +55,7 @@ async function getsongs(folder) {
   });
   return songs;
 }
+
 const playmusic = (track, pause = false) => {
   //   var audio = new Audio("/Songs/"+track);
   currentSong.src = `/${currFolder}/ ` + track;
@@ -69,9 +70,6 @@ const playmusic = (track, pause = false) => {
   );
   document.querySelector(".duration").innerHTML = "00:00/00:00";
 };
-
-
-
 
 async function DisplayCard() {
   let a = await fetch(`/Songs/`);
@@ -126,12 +124,9 @@ async function DisplayCard() {
   });
 }
 
-
-
-
-
 async function main() {
   songs = await getsongs("Songs/Mood");
+  playmusic(songs[0], true);
   await DisplayCard();
   //   var audio = new Audio(songs[0]);
   //   audio.play;
