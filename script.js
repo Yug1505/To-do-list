@@ -65,9 +65,7 @@ const playmusic = (track, pause = false) => {
     currentSong.play();
     play.src = "Images/pause.svg";
   }
-  document.querySelector(".songname").innerHTML = decodeURI(
-    track.split(".")[0]
-  );
+  document.querySelector(".songname").innerHTML = decodeURI(track);
   document.querySelector(".duration").innerHTML = "00:00/00:00";
 };
 
