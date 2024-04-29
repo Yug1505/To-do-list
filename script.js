@@ -83,7 +83,7 @@ async function DisplayCard() {
   for (let index = 0; index < array.length; index++) {
     const e = array[index];
 
-    if (e.href.includes("/Songs/") && !e.href.includes(".htaccess")) {
+    if (e.href.includes("/Songs/") && !e.href.includes(".htacces")) {
       let folder = e.href.split("/").slice(-1)[0];
 
       let a = await fetch(`/Songs/${folder}/info.json`);
