@@ -126,6 +126,7 @@ async function DisplayCard() {
 
 async function main() {
   songs = await getsongs("Songs/Mood");
+
   playmusic(songs[0], true);
   await DisplayCard();
   //   var audio = new Audio(songs[0]);
